@@ -88,6 +88,7 @@ Scenarios where a command will throw an error but the program will continue:
 * The trip command is invoked for a driver that has not yet been added to the system
 
 ### Future Improvements
-* Currently, if a command cannot be processed, it is discarded. One of the scenarios where this happens is when a trip is recorded for a driver who has not yet been added to the system. It might be nice to include a way to store those trips so that they can be added to the driver once the registration process is complete.
+* If a command cannot be processed, it is discarded. One of the scenarios where this happens is when a trip is recorded for a driver who has not yet been added to the system. It might be nice to include a way to store those trips so that they can be added to the driver once the registration process is complete.
 * Currently, there is no way to remove a trip that was added in error or edit a trip that was incorrect. It might be nice to add that functionality. 
 * The report is currently printed immediately after the program finishes processing the commands. It might be nice to give the user an option of whether or not to print the report once the file has been processed if there were errors.
+* As the requirements requested, trips with an average speed of less than 5 mph or greater than 100 mph are discarded. It might be nice to make these values configurable.  
