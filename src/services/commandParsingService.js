@@ -7,7 +7,13 @@ import assert from 'assert';
 export const parseCommand = (command) => {
     const commandArray = command.split(' ');
     const commandName = commandArray[0];
-    commandName === DRIVER_COMMAND ? parseDriverCommand(commandArray) : parseTripCommand(commandArray);
+    if(commandName === DRIVER_COMMAND){
+        parseDriverCommand(commandArray);
+    }else if(commandName === TRIP_COMMAND){
+        parseTripCommand(commandArray);
+    }else{
+        throw new Error(`The only valid commands are Driver and Trip. ${commandName} is not valid.`)
+    }
 };
 
 const parseDriverCommand = (driverCommand) => {
@@ -29,22 +35,18 @@ const parseTripCommand = (tripCommand) => {
 };
 
 const validateDriverCommand = (driverCommand) => {
-    const driverCommandName = driverCommand[0];
     const driverName = driverCommand[1];
     assert.strictEqual(driverCommand.length, 2, new Error("Driver command must be in the format 'Driver ${driverName}'."));
-    assert.strictEqual(driverCommandName, DRIVER_COMMAND, new Error('Driver command must be called Driver.'));
     assert.ok(typeof driverName === 'string', new Error('DriverName must be a string'));
 };
 
 const validateTripCommand = (tripCommand) => {
     assert.strictEqual(tripCommand.length, 5, new Error("Trip Command must be in format: 'Trip {name} {startTime} {endTime} {milesDriven}"));
-    const tripCommandName = tripCommand[0];
     const driverName = tripCommand[1];
     const startTime = tripCommand[2];
     const endTime = tripCommand[3];
     const milesDriven = tripCommand[4];
     const timeRegex = /([0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]/;
-    assert.strictEqual(tripCommandName, TRIP_COMMAND, new Error('Trip command must be called Trip.'));
     assert.ok(typeof driverName === 'string', new Error('DriverName must be a string'));
     assert.match(startTime,timeRegex, new Error('StartTime must be in format HH:mm'));
     assert.match(endTime, timeRegex, new Error('EndTime must be in format HH:mm'));

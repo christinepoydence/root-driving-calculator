@@ -2,6 +2,7 @@
   "name": "root-driving-calculator",
   "version": "0.0.1",
   "description": "This application will accept an input file and output information about driving distance and speed for all drivers.",
+  "repository": "https://github.com/christinepoydence/root-driving-calculator.git",
   "main": "src/index.js",
   "type": "module",
   "jest": {
