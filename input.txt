@@ -1,0 +1,10 @@
+Driver Craig
+Driver Christine
+Driver Penny
+Trip Christine 10:00 14:30 65
+Trip Christine 10:00 12:30 1000
+Trip Christine 10:00 12:30 15
+Trip Craig 02:00 15:00 600
+Trip Penny 08:00 09:00 10
+Trip Penny 08:00 09:00 30
+Trip Penny 25:00 12:00 70
